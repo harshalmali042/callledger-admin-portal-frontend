@@ -134,7 +134,7 @@
 
 @endsection
 @push('scripts')
-   {{-- <script>
+   <script>
         $(document).ready(function() {
 
             // Setup CSRF token for all AJAX requests
@@ -227,5 +227,5 @@
             });
 
         });
-    </script> --}}
+    </script> 
 @endpush

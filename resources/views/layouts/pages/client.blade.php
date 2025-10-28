@@ -146,7 +146,7 @@
 </div>
 @endsection
 @push('scripts')
-   {{-- <script>
+   <script>
         $(document).ready(function() {
 
             // Setup CSRF token for all AJAX requests
@@ -156,36 +156,6 @@
                 }
             });
 
-            // Referral copy logic
-            {{--  $('#copyReferralBtn').on('click', function() {
-                // Example: your referral base URL
-                const link = "https://callledger.com/signup?ref";
-
-                $.get('/get-refer-id', function(data) {
-                    const refer_id = data.refer_id;
-                    navigator.clipboard.writeText(link + '=' + refer_id)
-                        .then(() => {
-                            const messageBox = document.getElementById('referralMessage');
-                            messageBox.textContent = 'Referral link copied: ' + link + '=' +
-                                refer_id;
-                            messageBox.classList.remove('d-none');
-
-                            // Auto-hide after 2.5 seconds
-                            setTimeout(() => {
-                                messageBox.classList.add('d-none');
-                            }, 2500);
-                        })
-                        .catch(err => console.error('Failed to copy:', err));
-                }).fail(function() {
-                    const messageBox = document.getElementById('referralMessage');
-                    messageBox.textContent = 'Unable to copy referral link.';
-                    messageBox.classList.remove('d-none');
-                    setTimeout(() => {
-                        messageBox.classList.add('d-none');
-                    }, 2500);
-                });
-
-            }); --}}
 
             // Fetch merchants via backend proxy
             $.ajax({
@@ -239,5 +209,5 @@
             });
 
         });
-    </script> --}}
+    </script> 
 @endpush

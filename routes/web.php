@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Route::get('/admin-login', function () {
+    return view('auth.login');
+});
 
 Route::get('/', function () {
     return view('layouts.main');
@@ -42,12 +45,7 @@ Route::get('/totalmember', function () {
 Route::get('/notification', function () {
     return view('layouts.pages.notification');
 });
+
 Route::get('/logout', function () {
     return view('layouts.pages.logout');
 });
-Route::get('/setting', function () {
-    return view('layouts.pages.setting');
-});
-
-
-
