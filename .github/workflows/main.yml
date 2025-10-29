@@ -46,6 +46,5 @@ jobs:
           sudo chmod -R 775 /var/www/myapp &&
           git config --global --add safe.directory /var/www/myapp &&
           cd /var/www/myapp &&
-          composer install --no-dev --optimize-autoloader &&
-          sudo systemctl restart nginx
+          composer install --no-dev --optimize-autoloader
           "
