@@ -34,3 +34,18 @@ jobs:
       - name: Test SSH Connection
         run: |
           ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no ubuntu@${{ secrets.AWS_HOST }} "echo ✅ SSH connection successful!"
+
+      - name: Deploy to EC2
+        run: |
+          echo "🚀 Deploying Laravel app to EC2..."
+          rsync -avz -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no" \
+          --exclude ".git" --exclude "node_modules" --exclude ".github" \
+          ./ ubuntu@${{ secrets.AWS_HOST }}:/var/www/myapp
+          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no ubuntu@${{ secrets.AWS_HOST }} "
+          sudo chown -R ubuntu:www-data /var/www/myapp &&
+          sudo chmod -R 775 /var/www/myapp &&
+          git config --global --add safe.directory /var/www/myapp &&
+          cd /var/www/myapp &&
+          composer install --no-dev --optimize-autoloader &&
+          sudo systemctl restart nginx
+          "
